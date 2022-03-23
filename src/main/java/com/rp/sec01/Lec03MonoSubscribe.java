@@ -6,8 +6,13 @@ public class Lec03MonoSubscribe {
 
     public static void main(String[] args) {
 
-        // publisher
-        Mono<String> mono = Mono.just("Exemplo");
+        // publisher - Cenário de Sucesso
+        //Mono<String> mono = Mono.just("Exemplo");
+
+        // publisher - Cenário de Erro
+        Mono<Integer> mono = Mono.just("Exemplo")
+                .map(String::length)
+                .map(numero -> numero / 0);
 
         // Opção 1 - Mono Subscribe sem construtor
         //mono.subscribe(System.out::println);

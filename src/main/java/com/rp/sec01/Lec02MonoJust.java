@@ -17,5 +17,6 @@ public class Lec02MonoJust {
         mono.subscribe(integer -> System.out.println("Recebi o inteiro do publisher : " + integer));
 
 
+
     }
 }

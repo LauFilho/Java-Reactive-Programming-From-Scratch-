@@ -26,4 +26,14 @@ public class Util {
     public static Faker faker(){
         return FAKER;
     }
+
+    public static void sleepSeconds (int segundos){
+
+        try {
+            Thread.sleep(segundos * 1000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

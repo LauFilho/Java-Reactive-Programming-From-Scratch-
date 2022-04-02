@@ -7,12 +7,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class FileServiceImpl {
 
-    private static final Path PATH = Paths.get("src/main/java/com/rp/resources/assignment/sec01");
+    private static final Path PATH = Paths.get("E:\\Documentos (F)\\Programação\\Java Reactive Programming [ From Scratch ]\\src\\main\\java\\com\\rp\\resources\\assignment\\sec01\\");
 
     public static Mono<String> readMono(String nomeArquivo) {
         return Mono.fromSupplier(() -> readFile(nomeArquivo));
@@ -28,7 +27,7 @@ public class FileServiceImpl {
 
     private static String readFile(String nomeArquivo) {
         try {
-            return Arrays.toString(Files.readAllBytes(PATH.resolve(nomeArquivo)));
+            return String.valueOf((Files.readAllBytes((PATH.resolve(nomeArquivo))).toString()));
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());
         }

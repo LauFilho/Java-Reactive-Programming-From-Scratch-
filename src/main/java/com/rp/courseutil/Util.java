@@ -1,6 +1,7 @@
 package com.rp.courseutil;
 
 import com.github.javafaker.Faker;
+import org.reactivestreams.Subscriber;
 
 import java.util.function.Consumer;
 
@@ -23,11 +24,11 @@ public class Util {
         return () -> System.out.println("Completo");
     }
 
-    public static Faker faker(){
+    public static Faker faker() {
         return FAKER;
     }
 
-    public static void sleepSeconds (int segundos){
+    public static void sleepSeconds(int segundos) {
 
         try {
             Thread.sleep(segundos * 1000L);
@@ -36,4 +37,13 @@ public class Util {
         }
 
     }
+
+    public static Subscriber<Object> subscriber() {
+        return new DefaultSubscriber();
+    }
+
+    public static Subscriber<Object> subscriber(String nome) {
+        return new DefaultSubscriber(nome);
+    }
+
 }

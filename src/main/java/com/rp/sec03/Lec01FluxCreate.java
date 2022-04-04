@@ -7,6 +7,7 @@ public class Lec01FluxCreate {
 
     public static void main(String[] args) {
 
+        // Exemplo 1 : Com do While pro Flux.create
         Flux.create(fluxSink -> {
 
                     String pais;
@@ -18,5 +19,8 @@ public class Lec01FluxCreate {
 
                 })
                 .subscribe(Util.subscriber());
+
+
+
     }
 }

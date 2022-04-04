@@ -3,7 +3,6 @@ package com.rp.sec03;
 import com.rp.courseutil.Util;
 import com.rp.sec03.helper.NameProducer;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.FluxSink;
 
 public class Lec02FluxCreateRefactor {
 
@@ -12,8 +11,15 @@ public class Lec02FluxCreateRefactor {
         // Exemplo 2 : Usando o FluxCreate com o conceito de FluxSink embutido internamente
         NameProducer nameProducer = new NameProducer();
         Flux.create(nameProducer)
-                .subscribe(Util.subscriber());
+                .subscribe(Util.subscriber()
+                );
 
-        nameProducer.produce();
+        Runnable runnable = nameProducer::produce;
+
+        for (int i = 0; i < 10; i++) {
+            new Thread(runnable).start();
+        }
+        Util.sleepSeconds(1);
     }
+
 }

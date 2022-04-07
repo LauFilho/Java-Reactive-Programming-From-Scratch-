@@ -7,6 +7,7 @@ public class Lec04FluxCreateIssueFix {
 
     public static void main(String[] args) {
         // Exemplo 1 : Com do While pro Flux.create
+        // Com apenas uma instância de fluxSink
         Flux.create(fluxSink -> {
 
                     String pais;

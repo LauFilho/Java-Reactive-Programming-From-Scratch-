@@ -9,17 +9,19 @@ public class Lec06FluxGenerateAssignment {
 
         Flux.generate(synchronousSink -> {
 
-            String pais = Util.faker().country().name();
-            System.out.println("Pais :" + pais);
-            synchronousSink.next(pais); // Vai pegar o próximo país
+                    String pais = Util.faker().country().name();
+                    System.out.println("Pais :" + pais);
+                    synchronousSink.next(pais); // Vai pegar o próximo país
 
-            if (pais.toLowerCase().equals("brazil")) {
-                synchronousSink.complete();
+                    if (pais.toLowerCase().equals("brazil")) {
+                        synchronousSink.complete();
 
-            }
+                    }
 
-        }).subscribe(
-                Util.subscriber()
-        );
+                })
+                .take(10)
+                .subscribe(
+                        Util.subscriber()
+                );
     }
 }
